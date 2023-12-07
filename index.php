@@ -13,7 +13,7 @@
 <?php 
 
     
-    
+    //toto je komentár
     if(isset($_POST["submit"]))
     {
 
