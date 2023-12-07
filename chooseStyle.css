@@ -3,9 +3,23 @@
     margin: 0;
     padding: 0;
 }
+body
+{
+    background-image: url(images/pexels-george-dolgikh-1303098.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    height: 100vh;
+    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif;
+}
+
 h1
 {
     text-align: center;
+    font-size: 50px;
+    margin-top: 160px;
+    margin-bottom: 50px;
 }
 
 .container
@@ -18,26 +32,47 @@ h1
 } 
 
 .choosename {
-    background-color: red;
+    background-color: rgba(203, 59, 59, 0.722);
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5%;
     width: 200px;
     height: 50px;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.choosename.selected {
-    background-color: blue;
+.choosename:hover{
+    cursor: pointer;
+    background-color: rgba(203, 59, 59, 0.864);
 }
-.button {
-    background-color: #04AA6D; /* Green */
+
+
+.choosename.selected {
+    background-color: rgb(255, 0, 0);
+}
+button {
+    background-color: #25c151da; /* Green */
     border: none;
-    color: white;
-    padding: 15px 32px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    padding: 20px 80px 20px 80px;
+    border-radius: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    height: 51px;
+}
+
+button:hover{
+    background-color: #1ed351; /* Green */
+}
+
+
+
+.bunka{
+    display: flex;
+    justify-content: center;
 }
