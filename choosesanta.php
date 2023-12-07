@@ -39,9 +39,7 @@
     }
 
     if($getback)
-    {
         header("Location: choose.php");
-    }
 
 ?>
 
@@ -51,7 +49,53 @@
 
     <?php
 
-        echo $activeuser;
+        $read_s = "SELECT * FROM already_santa";
+        $resultread_s = mysqli_query($connection,$read_s);
+
+        echo $activeuser . "<br><br>";
+
+        $usercount = 0;
+        mysqli_data_seek($resultread, 0);
+        while ($row = mysqli_fetch_assoc($resultread)) 
+        {
+            $usercount++;
+            echo $usercount . " ~ " . $row["username"] . "<br>";
+        }
+        
+        $santa = "x";
+        $fix = 0;
+        
+        mysqli_data_seek($resultread, 0);
+   
+        
+        $SPECIAL_sql = "SELECT * FROM users";
+        $SPECIAL_result = $connection->query($SPECIAL_sql);
+        $users = array();
+
+        while ($row = $SPECIAL_result->fetch_assoc()) 
+        {
+            $users[] = $row;
+        }
+
+        $breakout = false;
+        do
+        {
+            $result = rand(1, $usercount);
+            $result -= 1;
+            $compare = $users[$result]['username'];
+
+            if($compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
+                continue;
+            else 
+            {
+                $santa = $compare;
+                $breakout = true;
+            }    
+
+        }while(!$breakout);
+        
+        echo "<br><br>" . $santa . "<br><br>";
+
 
     ?>
 

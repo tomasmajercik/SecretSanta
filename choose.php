@@ -20,15 +20,18 @@
     $read = "SELECT * FROM users";
     $resultread = mysqli_query($connection,$read);
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") 
+    {
         // Check if the selected_user is set in the form submission
-        if (isset($_POST["selected_user"])) {
+        if (isset($_POST["selected_user"])) 
+        {
             // Retrieve the selected_user value from the form submission
             $selectedUser = $_POST["selected_user"];
     
             // Store the selected user in the session variable
             header("Location: choosesanta.php?username=$selectedUser");
-        } else {
+        } else 
+        {
             // Handle the case when no user is selected
             echo "No user selected.";
         }
@@ -47,7 +50,8 @@
     <h1>Who are you?</h1>
     <form action="choose.php" method="post">
     <?php
-    while ($row = mysqli_fetch_assoc($resultread)) {
+    while ($row = mysqli_fetch_assoc($resultread)) 
+    {
         $username = $row["username"];
         $santaTo = $row["santaTo"];
 
