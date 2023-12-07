@@ -8,6 +8,7 @@ body
     background-image: url(images/pexels-george-dolgikh-1303098.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     margin-left: auto;
     height: 100vh;
@@ -33,6 +34,8 @@ h1
 
 .choosename {
     background-color: rgba(203, 59, 59, 0.722);
+    color: rgb(71, 71, 71);
+    font-size: 40px;
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 5%;
@@ -45,11 +48,13 @@ h1
 .choosename:hover{
     cursor: pointer;
     background-color: rgba(203, 59, 59, 0.864);
+    color: white;
 }
 
 
 .choosename.selected {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(209, 33, 33);
+    color: white;
 }
 button {
     background-color: #25c151da; /* Green */
@@ -57,22 +62,33 @@ button {
     outline: none;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    color: rgb(224, 224, 224);
     padding: 20px 80px 20px 80px;
     border-radius: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 button:hover{
     background-color: #1ed351; /* Green */
+    color: white;
 }
 
 
 
-.bunka{
+.bunka
+{
     display: flex;
     justify-content: center;
 }
+
+.generator
+{
+    text-align: center;
+    margin-top: 23%;
+    font-size: 390%;
+}
+

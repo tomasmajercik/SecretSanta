@@ -20,6 +20,7 @@ include "connectiontodb.php";
 $read = "SELECT * FROM users";
 $resultread = mysqli_query($connection, $read);
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Check if the selected_user is set in the form submission
     if (isset($_POST["selected_user"])) {
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: choosesanta.php?username=$selectedUser");
     } else {
         // Handle the case when no user is selected
-        echo "No user selected.";
+        echo '<script>alert("No users selected...")</script>';
     }
 }
 
