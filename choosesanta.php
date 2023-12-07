@@ -72,29 +72,58 @@
         $SPECIAL_result = $connection->query($SPECIAL_sql);
         $users = array();
 
+        //naplnenie pola databazou
         while ($row = $SPECIAL_result->fetch_assoc()) 
         {
             $users[] = $row;
         }
-
+        
         $breakout = false;
+        $Breakout = false;
+        $limit = 1;
         do
         {
-            $result = rand(1, $usercount);
-            $result -= 1;
+            $limit++;
+            if($limit >= 100)
+            {
+                echo "<h1 class='errormessage'>We have somehow run out of santas</h1>";
+                $Breakout = true;
+            }
+            //inicializacia
+            $already = false;
+            $result = rand(1, $usercount) - 1;
             $compare = $users[$result]['username'];
 
-            if($compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
+            //pozrie ci uz nahodou nie je santa
+            $BREAK = 0;
+            mysqli_data_seek($resultread_s, 0);
+            while ($row = mysqli_fetch_assoc($resultread_s)) 
+            {
+                if($compare == $row["username"])
+                {
+                    $already = true;
+                    break;
+                }
+            }
+            if($already || $compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
                 continue;
-            else 
+            else
             {
                 $santa = $compare;
                 $breakout = true;
             }    
 
-        }while(!$breakout);
+        }while(!$breakout && !$Breakout);
         
-        echo "<br><br>" . $santa . "<br><br>";
+        //poslanie do databazy
+        if($breakout)
+        {
+            $query = "INSERT INTO `already_santa` (`ID`, `username`) VALUES (NULL, '$santa');";
+            $result = mysqli_query($connection,$query);
+            echo "<br><br>" . $santa . "<br><br>";
+
+        }
+
 
 
     ?>
