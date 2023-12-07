@@ -1,0 +1,73 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes at least the full height of the viewport */
+}
+
+header {
+    background-color: #007bff; /* Bootstrap's primary color */
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+main {
+    margin: auto; /* Center content horizontally */
+    flex-grow: 1; /* Allow main to take up remaining vertical space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally in main */
+    justify-content: center; /* Center items vertically in main */
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #343a40; /* Dark gray text color */
+}
+
+footer {
+    background-color: #007bff;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+form {
+    text-align: center; /* Center form content */
+    margin-top: 35vh;
+}
+
+/* Hyperlink styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button style */
+.button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 51px;
+}
+
+.input
+{
+    height: 45px;
+    letter-spacing: 22px;
+}
+
