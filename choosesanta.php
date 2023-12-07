@@ -38,14 +38,16 @@
         }
     }
 
-    // if($getback)
-    // {
-    //     header("Location: choose.php");
-    // }
+    if($getback)
+    {
+        header("Location: choose.php");
+    }
 
 ?>
 
 <body>
+
+    <h1>generating who are you santa to</h1>
 
     <?php
 
