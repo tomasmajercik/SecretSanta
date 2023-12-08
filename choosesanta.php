@@ -54,75 +54,94 @@
 
         echo $activeuser . "<br><br>";
 
-        $usercount = 0;
-        mysqli_data_seek($resultread, 0);
-        while ($row = mysqli_fetch_assoc($resultread)) 
-        {
-            $usercount++;
-            echo $usercount . " ~ " . $row["username"] . "<br>";
-        }
-        
-        $santa = "x";
-        $fix = 0;
-        
-        mysqli_data_seek($resultread, 0);
-   
-        
-        $SPECIAL_sql = "SELECT * FROM users";
-        $SPECIAL_result = $connection->query($SPECIAL_sql);
-        $users = array();
+        $santatowhom = "x";
+        $read_s = "SELECT santaTo FROM users WHERE username = '$activeuser'";
+        $result = mysqli_query($connection, $read_s);
 
-        //naplnenie pola databazou
-        while ($row = $SPECIAL_result->fetch_assoc()) 
+        $row = mysqli_fetch_assoc($result);
+        $santatowhom = $row['santaTo'];
+        echo $santatowhom;
+
+        if($santatowhom == "")
         {
-            $users[] = $row;
-        }
-        
-        $breakout = false;
-        $Breakout = false;
-        $limit = 1;
-        do
-        {
-            $limit++;
-            if($limit >= 100)
+
+            $usercount = 0;
+            mysqli_data_seek($resultread, 0);
+            while ($row = mysqli_fetch_assoc($resultread)) 
             {
-                echo "<h1 class='errormessage'>We have somehow run out of santas</h1>";
-                $Breakout = true;
+                $usercount++;
+                echo $usercount . " ~ " . $row["username"] . "<br>";
             }
-            //inicializacia
-            $already = false;
-            $result = rand(1, $usercount) - 1;
-            $compare = $users[$result]['username'];
-
-            //pozrie ci uz nahodou nie je santa
-            $BREAK = 0;
-            mysqli_data_seek($resultread_s, 0);
-            while ($row = mysqli_fetch_assoc($resultread_s)) 
+            
+            $santa = "x";
+            $fix = 0;
+            
+            mysqli_data_seek($resultread, 0);
+       
+            
+            $SPECIAL_sql = "SELECT * FROM users";
+            $SPECIAL_result = $connection->query($SPECIAL_sql);
+            $users = array();
+    
+            //naplnenie pola databazou
+            while ($row = $SPECIAL_result->fetch_assoc()) 
             {
-                if($compare == $row["username"])
+                $users[] = $row;
+            }
+            
+            $breakout = false;
+            $Breakout = false;
+            $limit = 1;
+            do
+            {
+                $limit++;
+                if($limit >= 100)
                 {
-                    $already = true;
-                    break;
+                    echo "<h1 class='errormessage'>We have somehow run out of santas</h1>";
+                    $Breakout = true;
                 }
-            }
-            if($already || $compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
-                continue;
-            else
+                //inicializacia
+                $already = false;
+                $result = rand(1, $usercount) - 1;
+                $compare = $users[$result]['username'];
+    
+                //pozrie ci uz nahodou nie je santa
+                $BREAK = 0;
+                mysqli_data_seek($resultread_s, 0);
+                while ($row = mysqli_fetch_assoc($resultread_s)) 
+                {
+                    if($compare == $row["username"])
+                    {
+                        $already = true;
+                        break;
+                    }
+                }
+                if($already || $compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
+                    continue;
+                else
+                {
+                    $santa = $compare;
+                    $breakout = true;
+                }    
+    
+            }while(!$breakout && !$Breakout);
+            
+            //poslanie do databazy
+            if($breakout)
             {
-                $santa = $compare;
-                $breakout = true;
-            }    
-
-        }while(!$breakout && !$Breakout);
-        
-        //poslanie do databazy
-        if($breakout)
-        {
-            $query = "INSERT INTO `already_santa` (`ID`, `username`) VALUES (NULL, '$santa');";
-            $result = mysqli_query($connection,$query);
-            echo "<br><br>" . $santa . "<br><br>";
-
+                $query = "INSERT INTO `already_santa` (`ID`, `username`) VALUES (NULL, '$santa')";
+                $result = mysqli_query($connection,$query);
+                $query = "UPDATE `users` SET `santaTo` = '$santa' WHERE `username` = '$activeuser'";
+                $result = mysqli_query($connection,$query);
+                echo "<br><br>" . $santa . "<br><br>";
+    
+            }
         }
+        else
+        {
+            echo "<h1 class='alreadyissanta'>You already are santa!</h1>";
+        }
+
 
 
 
