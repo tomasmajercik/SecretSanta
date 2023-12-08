@@ -14,7 +14,7 @@
 <?php
 
 
-//toto je komentár
+
 if (isset($_POST["submit"])) {
 
     $passcode = $_POST["passcode"];
@@ -46,8 +46,8 @@ if (isset($_POST["submit"])) {
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
-        <h1>Enter Passcode</h1>
-        <input class="input" type="text" name="passcode" placeholder="zadaj heslo" required minlength="5" maxlength="5">
+        <h4>Enter Passcode</h4>
+        <input class="input" type="text" name="passcode" placeholder="zadaj" required minlength="5" maxlength="5">
         <input class="button" type="submit" name="submit" value="log in">
     </form>
 
