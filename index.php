@@ -18,7 +18,7 @@
 
         $passcode = $_POST["passcode"];
         $accountexist = false;
-        if($passcode == "aaaaa")
+        if($passcode == "Santa")
         {
             $accountexist = true;
         }
