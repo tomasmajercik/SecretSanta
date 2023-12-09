@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ChooseSantaStyle.css">
@@ -10,41 +11,44 @@
 </head>
 
 <?php
-    session_start();
-    if($_SESSION['choose'] != "1")
-    {
-        header("Location: index.php");
+session_start();
+if ($_SESSION['choose'] != "1") {
+    header("Location: index.php");
+}
+include "connectiontodb.php";
+
+$read = "SELECT * FROM users";
+$resultread = mysqli_query($connection, $read);
+
+if (isset($_GET['username'])) {
+    $SANTATO = $_GET['username'];
+}
+
+$activeuser;
+$getback = true;
+while ($row = mysqli_fetch_assoc($resultread)) {
+    $username = $row["username"];
+    if ($username == $SANTATO) {
+        $activeuser = $username;
+        $getback = false;
+        break;
     }
-    include "connectiontodb.php";
+}
 
-    $read = "SELECT * FROM users";
-    $resultread = mysqli_query($connection,$read);
-
-    if (isset($_GET['username'])) 
-    {
-        $SANTATO = $_GET['username'];
-    }
-
-    $activeuser;
-    $getback = true;
-    while ($row = mysqli_fetch_assoc($resultread)) 
-    {
-        $username = $row["username"];
-        if($username == $SANTATO)
-        {
-            $activeuser = $username;
-            $getback = false;
-            break;
-        }
-    }
-
+<<<<<<< HEAD
     if($getback)
         header("Location: choose.php");
+=======
+if ($getback) {
+    header("Location: choose.php");
+}
+>>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 
 ?>
 
 <body>
 
+<<<<<<< HEAD
     <h1 class="headline">You are santa to:</h1>
 
     <?php
@@ -144,10 +148,18 @@
 
 
 
+=======
+    <h2 class="generator">Generating who are you santa to...</h2>
+
+    <?php
+
+    echo $activeuser;
+>>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 
     ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
