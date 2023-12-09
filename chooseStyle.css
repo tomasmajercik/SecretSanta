@@ -3,9 +3,24 @@
     margin: 0;
     padding: 0;
 }
+body
+{
+    background-image: url(images/pexels-george-dolgikh-1303098.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: auto;
+    height: 100vh;
+    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif
+}
+
 h1
 {
     text-align: center;
+    font-size: 50px;
+    margin-top: 160px;
+    margin-bottom: 50px;
 }
 
 .container
@@ -15,29 +30,71 @@ h1
 /* Hide the default radio button */
 .choosename input[type="radio"] {
     display: none;
+    width: 100px;
+    margin: 0 auto;
 } 
 
 .choosename {
-    background-color: red;
+    background-color: rgba(203, 59, 59, 0.722);
+    color: rgb(71, 71, 71);
+    font-size: 40px;
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5%;
     width: 200px;
     height: 50px;
     margin-bottom: 5px;
     text-align: center;
 }
 
-.choosename.selected {
-    background-color: blue;
-}
-.button {
-    background-color: #04AA6D; /* Green */
-    border: none;
+.choosename:hover{
+    cursor: pointer;
+    background-color: rgba(203, 59, 59, 0.864);
     color: white;
-    padding: 15px 32px;
+}
+
+
+.choosename.selected {
+    background-color: rgb(209, 33, 33);
+    color: white;
+}
+button {
+    background-color: #25c151da; /* Green */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 10px;
+    color: rgb(224, 224, 224);
+    padding: 20px 80px 20px 80px;
+    border-radius: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    height: 51px;
+    font-size: 20px;
+}
+
+button:hover{
+    background-color: #1ed351; /* Green */
+    color: white;
+}
+
+
+
+.bunka
+{
+    position: absolute;
+    justify-content: center;
+}
+
+.generator
+{
+    text-align: center;
+    margin-top: 23%;
+    font-size: 390%;
+}
+form
+{
+    display: block;
+    text-align: center;
 }

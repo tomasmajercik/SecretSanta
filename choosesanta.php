@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="chooseStyle.css">
+    <link rel="stylesheet" href="ChooseSantaStyle.css">
     <title></title>
     <link rel="icon" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,14 +45,14 @@
 
 <body>
 
-    <h1>generating who are you santa to</h1>
+    <h1 class="headline">You are santa to:</h1>
 
     <?php
 
         $read_s = "SELECT * FROM already_santa";
         $resultread_s = mysqli_query($connection,$read_s);
 
-        echo $activeuser . "<br><br>";
+        //echo $activeuser . "<br><br>";
 
         $santatowhom = "x";
         $read_s = "SELECT santaTo FROM users WHERE username = '$activeuser'";
@@ -60,7 +60,7 @@
 
         $row = mysqli_fetch_assoc($result);
         $santatowhom = $row['santaTo'];
-        echo $santatowhom;
+        //echo $santatowhom;
 
         if($santatowhom == "")
         {
@@ -70,7 +70,7 @@
             while ($row = mysqli_fetch_assoc($resultread)) 
             {
                 $usercount++;
-                echo $usercount . " ~ " . $row["username"] . "<br>";
+                // echo $usercount . " ~ " . $row["username"] . "<br>";
             }
             
             $santa = "x";
@@ -133,7 +133,7 @@
                 $result = mysqli_query($connection,$query);
                 $query = "UPDATE `users` SET `santaTo` = '$santa' WHERE `username` = '$activeuser'";
                 $result = mysqli_query($connection,$query);
-                echo "<br><br>" . $santa . "<br><br>";
+                echo "<br><br><h1 class='output'>" . $santa . "</h1><br><br>";
     
             }
         }

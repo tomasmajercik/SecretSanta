@@ -2,9 +2,8 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="bootstrap 5/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Secrret Santa</title>
+    <link rel="stylesheet" href="Style.css">
+    <title>Secret Santa</title>
     <link rel="icon" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +18,7 @@
 
         $passcode = $_POST["passcode"];
         $accountexist = false;
-        if($passcode == "aaaaa")
+        if($passcode == "Santa")
         {
             $accountexist = true;
         }
