@@ -12,7 +12,7 @@ h1
 {
     text-align: center;
 }
-/* Hide the default radio button */
+
 .choosename input[type="radio"] {
     display: none;
 } 

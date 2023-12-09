@@ -2,7 +2,6 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <link rel= "stylesheet" href="bootstrap 5/css/bootstrap.css">
     <link rel= "stylesheet" href="transfer_style.css">
     <title></title>
     <link rel="icon" href= "">

@@ -35,20 +35,14 @@ while ($row = mysqli_fetch_assoc($resultread)) {
     }
 }
 
-<<<<<<< HEAD
-    if($getback)
-        header("Location: choose.php");
-=======
 if ($getback) {
     header("Location: choose.php");
 }
->>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 
 ?>
 
 <body>
 
-<<<<<<< HEAD
     <h1 class="headline">You are santa to:</h1>
 
     <?php
@@ -148,13 +142,6 @@ if ($getback) {
 
 
 
-=======
-    <h2 class="generator">Generating who are you santa to...</h2>
-
-    <?php
-
-    echo $activeuser;
->>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 
     ?>
 

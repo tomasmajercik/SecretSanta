@@ -65,28 +65,28 @@
 
     <style>
         table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-tr {
-    background-color: #ddd;
-}
-tr:nth-child(even) {
-    background-color: #eee;
-}
+        tr {
+            background-color: #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
 
 
 

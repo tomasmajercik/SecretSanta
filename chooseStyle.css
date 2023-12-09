@@ -12,11 +12,7 @@ body
     background-size: cover;
     margin-left: auto;
     height: 100vh;
-<<<<<<< HEAD
     font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif
-=======
-    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif;
->>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 }
 
 h1
@@ -76,7 +72,6 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-<<<<<<< HEAD
 }
 
 button:hover{
@@ -102,8 +97,6 @@ form
 {
     display: block;
     text-align: center;
-=======
->>>>>>> 39b4c7202a75f5935d70ceedc4bc87aadef4858c
 }
 
 button:hover{

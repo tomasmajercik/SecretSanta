@@ -1,5 +1,5 @@
 <?php 
-    /*localhost*/
+    /*localhostik*/
     $connection = mysqli_connect("localhost", "root", "", "secret_santa"); 
     
     /*real database*/

@@ -16,7 +16,7 @@ header {
 }
 
 main {
-    margin: auto; /* Center content horizontally */
+    margin: auto; 
     flex-grow: 1; /* Allow main to take up remaining vertical space */
     display: flex;
     flex-direction: column;

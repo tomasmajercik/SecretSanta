@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `already_santa`
 --
 
+/*TOTO JE CISTA DATABAZA PRE INSERT*/
 CREATE TABLE `already_santa` (
   `ID` int(100) NOT NULL,
   `username` varchar(100) NOT NULL
