@@ -8,6 +8,7 @@
     <link rel="icon" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="MyFontRegular.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 
 <?php
@@ -47,98 +48,85 @@ if ($getback) {
 
     <?php
 
-        $read_s = "SELECT * FROM already_santa";
-        $resultread_s = mysqli_query($connection,$read_s);
+    $read_s = "SELECT * FROM already_santa";
+    $resultread_s = mysqli_query($connection, $read_s);
 
-        //echo $activeuser . "<br><br>";
+    //echo $activeuser . "<br><br>";
 
-        $santatowhom = "x";
-        $read_s = "SELECT santaTo FROM users WHERE username = '$activeuser'";
-        $result = mysqli_query($connection, $read_s);
+    $santatowhom = "x";
+    $read_s = "SELECT santaTo FROM users WHERE username = '$activeuser'";
+    $result = mysqli_query($connection, $read_s);
 
-        $row = mysqli_fetch_assoc($result);
-        $santatowhom = $row['santaTo'];
-        //echo $santatowhom;
+    $row = mysqli_fetch_assoc($result);
+    $santatowhom = $row['santaTo'];
+    //echo $santatowhom;
 
-        if($santatowhom == "")
-        {
+    if ($santatowhom == "") {
 
-            $usercount = 0;
-            mysqli_data_seek($resultread, 0);
-            while ($row = mysqli_fetch_assoc($resultread)) 
-            {
-                $usercount++;
-                // echo $usercount . " ~ " . $row["username"] . "<br>";
-            }
-            
-            $santa = "x";
-            $fix = 0;
-            
-            mysqli_data_seek($resultread, 0);
-       
-            
-            $SPECIAL_sql = "SELECT * FROM users";
-            $SPECIAL_result = $connection->query($SPECIAL_sql);
-            $users = array();
-    
-            //naplnenie pola databazou
-            while ($row = $SPECIAL_result->fetch_assoc()) 
-            {
-                $users[] = $row;
-            }
-            
-            $breakout = false;
-            $Breakout = false;
-            $limit = 1;
-            do
-            {
-                $limit++;
-                if($limit >= 100)
-                {
-                    echo "<h1 class='errormessage'>We have somehow run out of santas</h1>";
-                    $Breakout = true;
-                }
-                //inicializacia
-                $already = false;
-                $result = rand(1, $usercount) - 1;
-                $compare = $users[$result]['username'];
-    
-                //pozrie ci uz nahodou nie je santa
-                $BREAK = 0;
-                mysqli_data_seek($resultread_s, 0);
-                while ($row = mysqli_fetch_assoc($resultread_s)) 
-                {
-                    if($compare == $row["username"])
-                    {
-                        $already = true;
-                        break;
-                    }
-                }
-                if($already || $compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
-                    continue;
-                else
-                {
-                    $santa = $compare;
-                    $breakout = true;
-                }    
-    
-            }while(!$breakout && !$Breakout);
-            
-            //poslanie do databazy
-            if($breakout)
-            {
-                $query = "INSERT INTO `already_santa` (`ID`, `username`) VALUES (NULL, '$santa')";
-                $result = mysqli_query($connection,$query);
-                $query = "UPDATE `users` SET `santaTo` = '$santa' WHERE `username` = '$activeuser'";
-                $result = mysqli_query($connection,$query);
-                echo "<br><br><h1 class='output'>" . $santa . "</h1><br><br>";
-    
-            }
+        $usercount = 0;
+        mysqli_data_seek($resultread, 0);
+        while ($row = mysqli_fetch_assoc($resultread)) {
+            $usercount++;
+            // echo $usercount . " ~ " . $row["username"] . "<br>";
         }
-        else
-        {
-            echo "<h1 class='alreadyissanta'>You already are santa!</h1>";
+
+        $santa = "x";
+        $fix = 0;
+
+        mysqli_data_seek($resultread, 0);
+
+
+        $SPECIAL_sql = "SELECT * FROM users";
+        $SPECIAL_result = $connection->query($SPECIAL_sql);
+        $users = array();
+
+        //naplnenie pola databazou
+        while ($row = $SPECIAL_result->fetch_assoc()) {
+            $users[] = $row;
         }
+
+        $breakout = false;
+        $Breakout = false;
+        $limit = 1;
+        do {
+            $limit++;
+            if ($limit >= 100) {
+                echo "<h1 class='errormessage'>We have somehow run out of santas</h1>";
+                $Breakout = true;
+            }
+            //inicializacia
+            $already = false;
+            $result = rand(1, $usercount) - 1;
+            $compare = $users[$result]['username'];
+
+            //pozrie ci uz nahodou nie je santa
+            $BREAK = 0;
+            mysqli_data_seek($resultread_s, 0);
+            while ($row = mysqli_fetch_assoc($resultread_s)) {
+                if ($compare == $row["username"]) {
+                    $already = true;
+                    break;
+                }
+            }
+            if ($already || $compare == $activeuser || ($compare == "Lenka" && $activeuser == "Zdenko") || ($compare == "Zdenko" && $activeuser == "Lenka"))
+                continue;
+            else {
+                $santa = $compare;
+                $breakout = true;
+            }
+        } while (!$breakout && !$Breakout);
+
+        //poslanie do databazy
+        if ($breakout) {
+            $query = "INSERT INTO `already_santa` (`ID`, `username`) VALUES (NULL, '$santa')";
+            $result = mysqli_query($connection, $query);
+            $query = "UPDATE `users` SET `santaTo` = '$santa' WHERE `username` = '$activeuser'";
+            $result = mysqli_query($connection, $query);
+            echo "<br><br><h1 class='output'>" . $santa . "</h1><br><br>";
+        }
+    } else {
+        echo "<h1 class='alreadyissanta'>You already are santa!</h1>";
+    }
 
 
 

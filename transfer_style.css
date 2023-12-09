@@ -9,6 +9,11 @@
 body
 {
     display: flex;
+    background-image: url(images/pexels-george-dolgikh-1303098.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'My Font', Arial, Helvetica, sans-serif;
 }
 .container
 {
@@ -59,4 +64,14 @@ span
     }
 
 
+}
+
+@font-face {
+    font-family: 'My Font';
+    src: url('font/MyFontRegular.ttf') format('woff2'),
+        url('font/MyFontRegular.woff') format('woff'),
+        url('font/MyFontRegular.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }

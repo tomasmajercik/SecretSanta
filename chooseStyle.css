@@ -11,8 +11,8 @@ body
     background-position: center;
     background-size: cover;
     margin-left: auto;
+    font-family: 'My Font', Arial, Helvetica, sans-serif;
     height: 100vh;
-    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif
 }
 
 h1
@@ -83,8 +83,7 @@ button:hover{
 
 .bunka
 {
-    position: absolute;
-    justify-content: center;
+    margin: auto;
 }
 
 .generator
@@ -119,3 +118,18 @@ button:hover{
     font-size: 390%;
 }
 
+.your-style {
+    font-family: 'My Font';
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'My Font';
+    src: url('font/MyFontRegular.ttf') format('woff2'),
+        url('font/MyFontRegular.woff') format('woff'),
+        url('font/MyFontRegular.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

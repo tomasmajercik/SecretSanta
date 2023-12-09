@@ -7,8 +7,7 @@
     <link rel="icon" href= "">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&family=Yusei+Magic&display=swap" rel="stylesheet">
-    <link rel= "stylesheet" href="style.css" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://db.onlinewebfonts.com/c/31ed0189fe1ff1e740a652e0f75b77dc?family=Snell+Roundhand+Script" rel="stylesheet">
 </head>
 
 

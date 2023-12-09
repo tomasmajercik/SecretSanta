@@ -7,12 +7,13 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: auto;
-    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif;
+    font-family: 'My Font', Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the page takes at least the full height of the viewport */
     
 }
+
 
 header {
     background-color: #007bff; /* Bootstrap's primary color */
@@ -88,13 +89,29 @@ a:hover {
     max-width: 200px;
     margin: 0 auto;
     margin-top: 10px;
-    background: rgb(0,212,255);
-background: linear-gradient(90deg, rgba(0,212,255,0.20774247198879547) 0%, rgba(0,212,255,1) 10%, rgba(32,168,196,1) 25%, rgba(33,141,163,1) 50%, rgba(32,168,196,1) 75%, rgba(0,212,255,1) 90%, rgba(0,212,255,0.2973783263305322) 100%);
-    padding: 30px;
-    border-radius: 50%;
+    padding: 200px;
+    font-size: 50px;
+    background-image: url(images/envelope2.png);
+    background-size:100% ;
 }
 .headline
 {
     text-align: center;
     margin-top: 30vh;
+    font-size: 50px;
+}
+
+.alreadyissanta{
+    margin: auto;
+    margin-top: 50px;
+}
+
+@font-face {
+    font-family: 'My Font';
+    src: url('font/MyFontRegular.ttf') format('woff2'),
+        url('font/MyFontRegular.woff') format('woff'),
+        url('font/MyFontRegular.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
