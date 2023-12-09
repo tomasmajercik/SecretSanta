@@ -83,3 +83,26 @@ a:hover {
     text-align: center;
 }
 
+.errormessage
+{
+
+}
+.alreadyissanta
+{
+
+}
+.output
+{
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: rgb(0,212,255);
+background: linear-gradient(90deg, rgba(0,212,255,0.20774247198879547) 0%, rgba(0,212,255,1) 10%, rgba(32,168,196,1) 25%, rgba(33,141,163,1) 50%, rgba(32,168,196,1) 75%, rgba(0,212,255,1) 90%, rgba(0,212,255,0.2973783263305322) 100%);
+    padding: 30px;
+    border-radius: 50%;
+}
+.headline
+{
+    text-align: center;
+    margin-top: 30vh;
+}

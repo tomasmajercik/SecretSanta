@@ -2,7 +2,7 @@
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="chooseStyle.css">
+    <link rel="stylesheet" href="ChooseStyle.css">
     <title></title>
     <link rel="icon" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

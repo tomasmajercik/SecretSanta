@@ -1,17 +1,11 @@
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa; /* Light gray background */
-    background-image: url(images/pexels-george-dolgikh-1303098.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-left: auto;
-    font-family: Snell Roundhand, cursive, Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the page takes at least the full height of the viewport */
-    
 }
 
 header {
@@ -60,7 +54,7 @@ a:hover {
 
 /* Button style */
 .button {
-    background-color: #04aa6dcd; /* Green */
+    background-color: #04AA6D; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -71,15 +65,9 @@ a:hover {
     height: 51px;
 }
 
-.button:hover {
-    background-color: #04aa6d;
-    cursor: pointer;
-}
-
 .input
 {
     height: 45px;
-    letter-spacing: 5px;
-    text-align: center;
+    letter-spacing: 22px;
 }
 
